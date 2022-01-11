@@ -1,4 +1,4 @@
-from django.db import models
+from django.db.models import EmailField, BooleanField, DateTimeField
 from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.utils.translation import gettext_lazy as _
@@ -7,11 +7,11 @@ from .managers import CustomUserManager
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
-    email = models.EmailField(_('email address'), unique=True, db_index=True)
-    is_staff = models.BooleanField(default=False)
-    is_active = models.BooleanField(default=True)
-    time_create = models.DateTimeField(auto_now_add=True)
-    time_update = models.DateTimeField(auto_now=True)
+    email = EmailField(_('email address'), unique=True, db_index=True)
+    is_staff = BooleanField(default=False)
+    is_active = BooleanField(default=True)
+    time_create = DateTimeField(auto_now_add=True)
+    time_update = DateTimeField(auto_now=True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []

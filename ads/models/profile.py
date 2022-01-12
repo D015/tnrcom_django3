@@ -14,7 +14,7 @@ class Profile(BaseMixin, Model):
 
     first_name = CharField(max_length=150, blank=True)
     last_name = CharField(max_length=150, blank=True)
-    date_of_birth = DateField(blank=True)
+    date_of_birth = DateField(blank=True, null=True)
     photo = ImageField(upload_to='photos/%Y/%m/%d', blank=True)
 
     def __str__(self):

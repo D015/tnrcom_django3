@@ -1,0 +1,13 @@
+{% extends 'ads/base.html' %}
+
+{% block content %}
+
+    <h2>{{ title }}</h2>
+
+    {{ profile.first_name }}<br>
+    {{ profile.last_name }}<br>
+    {{ profile.uuid }}<br>
+    {{ profile.user }}<br>
+    {{ profile.user.email }}<br>
+
+{% endblock %}

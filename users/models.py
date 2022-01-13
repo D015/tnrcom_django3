@@ -7,20 +7,20 @@ from .managers import CustomUserManager
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
-    email = EmailField(_('email address'), unique=True, db_index=True)
+    email = EmailField(_("email address"), unique=True, db_index=True)
     is_staff = BooleanField(default=False)
     is_active = BooleanField(default=True)
     time_create = DateTimeField(auto_now_add=True)
     time_update = DateTimeField(auto_now=True)
 
-    USERNAME_FIELD = 'email'
+    USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
 
     objects = CustomUserManager()
 
     class Meta:
-        verbose_name = 'User'
-        verbose_name_plural = 'Users'
+        verbose_name = "User"
+        verbose_name_plural = "Users"
 
     def __str__(self):
         return f"User {self.email}"

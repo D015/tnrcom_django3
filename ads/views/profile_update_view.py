@@ -1,11 +1,11 @@
 from django.urls import reverse_lazy
 from django.views.generic import UpdateView
 
-from ads.models import Profile
-from ads.forms import ProfileForm
+from ..models import Profile
+from ..forms import ProfileForm
 
 
-class ProfileUpdate(UpdateView):
+class ProfileUpdateView(UpdateView):
     model = Profile
     form_class = ProfileForm
     # pk_url_kwarg = "pk"
@@ -15,4 +15,3 @@ class ProfileUpdate(UpdateView):
 
     def get_object(self, queryset=None):
         return Profile.objects.get(uuid=self.kwargs.get("uuid"))
-

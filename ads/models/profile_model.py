@@ -9,10 +9,12 @@ from django.db.models import (
 from django.conf import settings
 
 from users.models import CustomUser
-from .base_mixin import BaseMixin
+from .model_mixins import BaseMixinModel
 
 
-class Profile(BaseMixin, Model):
+class Profile(BaseMixinModel, Model):
+    db_table = "profile"
+
     user: CustomUser = OneToOneField(
         settings.AUTH_USER_MODEL, on_delete=PROTECT
     )

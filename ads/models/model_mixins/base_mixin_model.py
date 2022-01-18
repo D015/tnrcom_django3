@@ -3,7 +3,7 @@ from uuid import uuid4 as uuid_uuid4
 from django.db.models import UUIDField, DateTimeField, BooleanField, Model
 
 
-class BaseMixin(Model):
+class BaseMixinModel(Model):
 
     uuid = UUIDField(db_index=True, default=uuid_uuid4, editable=False)
 

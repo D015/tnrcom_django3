@@ -3,11 +3,11 @@ from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
-from ads.forms import UserCreateForm
-from ads.models import Profile
+from ..forms import UserCreateForm
+from ..models import Profile
 
 
-class UserCreate(CreateView):
+class UserCreateView(CreateView):
     form_class = UserCreateForm
     template_name = "ads/user_create.html"
     success_url = reverse_lazy("login")

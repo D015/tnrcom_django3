@@ -1,9 +1,9 @@
-from ads.models import Profile
-
 from django.views.generic import DetailView
 
+from ..models import Profile
 
-class ProfileDetail(DetailView):
+
+class ProfileDetailView(DetailView):
     model = Profile
     template_name = "ads/profile_detail.html"
     context_object_name = "profile"

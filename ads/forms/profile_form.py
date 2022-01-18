@@ -1,17 +1,18 @@
-from django.contrib.admin.widgets import AdminDateWidget
-from django.forms import CharField, ModelForm, TextInput, DateField, DateInput, \
-    SelectDateWidget, NumberInput
-from ads.models import Profile
+from django.forms import CharField, ModelForm, TextInput, DateField, DateInput
+
+from ..models import Profile
 
 
 class ProfileForm(ModelForm):
 
     first_name = CharField(widget=TextInput(attrs={"class": "form-input"}))
-
     last_name = CharField(widget=TextInput(attrs={"class": "form-input"}))
-
-    date_of_birth = DateField(widget=DateInput(attrs={
-        "type": "date", "class": "form-input"}, format="%Y-%m-%d"))
+    # TODO format="%Y-%m-%d" - this may not work on some local browser settings
+    date_of_birth = DateField(
+        widget=DateInput(
+            attrs={"type": "date", "class": "form-input"}, format="%Y-%m-%d"
+        )
+    )
 
     class Meta:
         model = Profile

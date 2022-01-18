@@ -1,21 +1,31 @@
 from django.urls import path
 
-from ads.views import index, UserCreate, _ex, ProfileDetail, ProfileUpdate
+from .views import (
+    index,
+    UserCreateView,
+    _ex,
+    ProfileDetailView,
+    ProfileUpdateView,
+    CustomerCreateView,
+)
 
 urlpatterns = [
     path("", index, name="home"),
     path("", _ex, name="_ex"),
-    path("register/", UserCreate.as_view(), name="register"),
-
+    path("register/", UserCreateView.as_view(), name="register"),
     path(
         "profile/<uuid:uuid>/",
-        ProfileDetail.as_view(),
+        ProfileDetailView.as_view(),
         name="profile_detail",
     ),
-
     path(
         "profile/update/<uuid:uuid>/",
-        ProfileUpdate.as_view(),
+        ProfileUpdateView.as_view(),
         name="profile_update",
+    ),
+    path(
+        "customer-create/",
+        CustomerCreateView.as_view(),
+        name="customer_create",
     ),
 ]

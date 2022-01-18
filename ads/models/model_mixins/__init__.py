@@ -1,0 +1,3 @@
+from .base_mixin_model import BaseMixinModel
+from .contacts_mixin_model import ContactsMixinModel
+from .profile_relation_mixin_model import RelationProfileMixinModel
